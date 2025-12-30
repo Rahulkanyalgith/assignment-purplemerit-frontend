@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiAlertTriangle, FiX } from 'react-icons/fi';
 import './Modal.css';
 
