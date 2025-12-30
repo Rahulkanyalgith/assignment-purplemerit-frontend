@@ -1,0 +1,506 @@
+.navbar {
+  background: white;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.brand-icon {
+  font-size: 1.75rem;
+}
+
+.brand-logo {
+  height: 70px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.2));
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--gray-700);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  min-height: 44px;
+  min-width: 44px;
+  z-index: 101;
+}
+
+.navbar-toggle:hover {
+  background: var(--gray-100);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  color: #475569;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  min-height: 44px;
+  position: relative;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.navbar-link:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar-link.active {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  color: #4f46e5;
+}
+
+.navbar-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-link svg {
+  font-size: 1.2rem;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 20px;
+  border-left: 2px solid #e2e8f0;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.user-name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+  letter-spacing: -0.3px;
+}
+
+.user-role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+}
+
+.role-admin {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  color: #4338ca;
+  border-color: #c7d2fe;
+}
+
+.role-user {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-color: #f87171;
+  color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.logout-btn svg {
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   TABLET AND SMALL DESKTOPS (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .navbar-brand {
+    font-size: 1.35rem;
+  }
+
+  .brand-logo {
+    height: 64px;
+  }
+
+  .navbar-menu {
+    gap: 24px;
+  }
+
+  .navbar-links {
+    gap: 4px;
+  }
+
+  .navbar-user {
+    gap: 12px;
+    padding-left: 12px;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   TABLETS (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .brand-logo {
+    height: 60px;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: var(--shadow-xl);
+    border-radius: 0;
+    display: flex;
+    width: 100%;
+    z-index: 50;
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 16px 0;
+  }
+
+  .navbar-link {
+    width: 100%;
+    border-radius: 0;
+    padding: 16px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .navbar-link:active {
+    background: var(--primary-100);
+  }
+
+  .navbar-user {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+    margin-top: auto;
+  }
+
+  .user-info {
+    align-items: center;
+    width: 100%;
+  }
+
+  .user-name {
+    font-size: 0.95rem;
+  }
+
+  .logout-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   MOBILE PHONES (max-width: 640px)
+   ============================================ */
+@media (max-width: 640px) {
+  .navbar-container {
+    padding: 0 14px;
+    height: 60px;
+  }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .brand-logo {
+    height: 56px;
+  }
+
+  .navbar-toggle {
+    font-size: 1.3rem;
+  }
+
+  .navbar-links {
+    padding: 12px 0;
+  }
+
+  .navbar-link {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    gap: 12px;
+  }
+
+  .navbar-link span {
+    font-weight: 500;
+  }
+
+  .navbar-user {
+    padding: 16px 18px;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+  }
+
+  .user-role {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .logout-btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+
+  .logout-btn svg {
+    font-size: 1rem;
+  }
+
+  .navbar-link svg {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE PHONES (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 12px;
+    height: 56px;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    height: 52px;
+  }
+
+  .navbar-toggle {
+    font-size: 1.2rem;
+    padding: 6px;
+  }
+
+  .navbar-links {
+    padding: 8px 0;
+  }
+
+  .navbar-link {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .navbar-link span {
+    display: inline;
+  }
+
+  .navbar-user {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .user-info {
+    width: 100%;
+  }
+
+  .user-name {
+    font-size: 0.85rem;
+  }
+
+  .user-role {
+    font-size: 0.65rem;
+    padding: 1px 5px;
+  }
+
+  .logout-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .logout-btn svg {
+    font-size: 0.95rem;
+  }
+
+  .navbar-link svg {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL DEVICES (max-width: 360px)
+   ============================================ */
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 0 10px;
+    height: 54px;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
+  }
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  .navbar-toggle {
+    font-size: 1.1rem;
+  }
+
+  .navbar-link {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .navbar-user {
+    padding: 12px 14px;
+  }
+
+  .user-name {
+    font-size: 0.8rem;
+  }
+
+  .logout-btn {
+    padding: 9px 12px;
+    font-size: 0.8rem;
+  }
+}
